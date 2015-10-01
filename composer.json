@@ -1,11 +1,15 @@
 {
-    "name": "rc/servired-bundle",
+    "name": "krixer/servired-bundle",
     "type": "symfony-bundle",
     "description": "Pasarela de pago TPV Sermepa para entidades asociadas a Servired",
     "keywords": ["sermepa", "tpv", "servired", "pasarela", "pago", "tarjeta de credito", "credit card", "pago con tarjeta", "bundle"],
-    "homepage": "https://github.com/rafaelcalleja/ServiredBundle.git", 
+    "homepage": "https://github.com/krixer/ServiredBundle.git", 
     "license": "MIT",
     "authors": [
+        {
+            "name": "Hector Escriche",
+            "email": "krixer@gmail.com"
+        },
         {
             "name": "Rafael Calleja",
             "email": "rafa.calleja@d-noise.net"
@@ -21,10 +25,10 @@
         "symfony/yaml": "2.3.x-dev",
         "symfony/form": "dev-master",
         "symfony/finder": "2.3.x-dev",
-	"symfony/console": "2.3.x",
-	"symfony/validator": "2.3.x-dev",
-	"symfony/browser-kit": "2.3.x-dev",
-	"doctrine/common": "2.3.x-dev",
+	    "symfony/console": "2.3.x",
+	    "symfony/validator": "2.3.x-dev",
+	    "symfony/browser-kit": "2.3.x-dev",
+	    "doctrine/common": "2.3.x-dev",
         "symfony/twig-bundle": "2.3.x-dev"
     },
     "autoload": {
