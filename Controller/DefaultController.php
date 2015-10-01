@@ -9,6 +9,8 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use RC\ServiredBundle\Entity\TPV;
 use RC\ServiredBundle\Entity\Transaction;
+use RC\ServiredBundle\Event\ServiredEvent;
+use RC\ServiredBundle\Event\PaymentEvent;
 use RC\ServiredBundle\Session\ServiredSession;
 use RC\ServiredBundle\Transaction\Response as TransactionResponse;
 use RC\ServiredBundle\Exception\NotFoundTransactionException;
@@ -82,6 +84,12 @@ class DefaultController extends Controller
 
             //TODO Guardamos transacciones erroneas, podriamos almacenar el texto del mensaje para su facil lectura.
             $this->get('rc_servired.transaction.manager')->update($transaction);
+
+
+            $entityManager = $this->get('doctrine')->getEntityManager();
+            $event = new PaymentEvent($transaction, $transaction->getDsOrder(), $transaction->getDsResponse(), $entityManager);
+            $dispatcher = $this->get('event_dispatcher'); 
+            $dispatcher->dispatch('post.transaction.update', $event);
 
             return new RedirectResponse($this->container->getParameter('rc_servired.url'));
 
