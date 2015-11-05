@@ -6,7 +6,6 @@
 
     <route id="rc_servired_payment" pattern="/onlinepayment/{amount}/{id}">
         <default key="_controller">RCServiredBundle:Default:index</default>
-        <requirement key="amount">\d+</requirement>
         <requirement key="id">\d+</requirement>
     </route>
 
